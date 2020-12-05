@@ -26,7 +26,7 @@ apt -y install bzip2 gzip lzip xz-utils p7zip unrar zip unzip
 apt -y install ntfs-3g exfat-utils
 
 # Install openssh
-apt -y install openssh
+apt -y install openssh-client
 
 # Install a few apps
 apt -y install firefox-esr chromium krita persepolis transmission
@@ -49,7 +49,8 @@ cd ..
 
 # Compile and install alacritty
 apt -y install cmake curl pkg-config libfreetype6-dev libfontconfig libfontconfig1-dev libxcb-xfixes0-dev python3
-curl https://sh.rustup.rs -sSd | sh -i
+#curl https://sh.rustup.rs -sSd | sh -i
+curl https://sh.rustup.rs -sSf | sh -s -- -y
 rustup override set stable
 rustup update stable
 
