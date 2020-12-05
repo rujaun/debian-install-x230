@@ -66,7 +66,7 @@ bindsym $mod+Shift+q kill
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # bindsym $mod+d exec rofi -show-icons -show drun
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+j focus left
