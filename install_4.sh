@@ -16,7 +16,7 @@ cp -r config/.profile ~/.profile
 sudo cp -r config/fonts/.local.conf /etc/fonts/.local.conf
 sudo cp -r config/fonts/.fonts.conf ~/.fonts.conf
 
-cp config/.alacritty.yml ~/.alacritty.yml
+cp config/alacritty/.alacritty.yml ~/.alacritty.yml
 
 # Git
 git config --global user.name "Rujaun Fourie"
