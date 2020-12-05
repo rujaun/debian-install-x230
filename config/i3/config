@@ -217,7 +217,8 @@ bar {
                 urgent_workspace        $ubgcolor        		$ubgcolor        		$textcolor
 	}
 	
-	status_command i3status
+	#status_command i3status
+	status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 }
 
 exec_always --no-startup-id xsetroot -solid "#2e3440" &
