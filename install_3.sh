@@ -51,6 +51,7 @@ cd ..
 apt -y install cmake curl pkg-config libfreetype6-dev libfontconfig libfontconfig1-dev libxcb-xfixes0-dev python3
 #curl https://sh.rustup.rs -sSd | sh -i
 curl https://sh.rustup.rs -sSf | sh -s -- -y
+source $HOME/.cargo/env
 rustup override set stable
 rustup update stable
 
