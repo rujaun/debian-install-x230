@@ -32,13 +32,14 @@ apt -y install openssh
 apt -y install firefox-esr chromium krita persepolis transmission
 
 # Install libreoffice
-apt -y install -t buster-backports libreoffice
+apt -y install -t buster-backports libreoffice libreoffice-gtk3
 
 # Install a few math applications
 apt -y install -t buster-backports geogebra kmplot cantor kalgebra labplot
 
 # Compile foliate ebook reader
-apt -y install gjs gir1.2-webkit2-4.0 meson gettext iso-codes libhandy
+apt -y install -t buster-backports gir1.2-handy-0.0
+apt -y install gjs gir1.2-webkit2-4.0 meson gettext iso-codes appstream-util libglib2.0-dev 
 git clone https://github.com/johnfactotum/foliate.git --branch 2.5.0 --single-branch
 cd foliate
 meson build --prefix=/usr
