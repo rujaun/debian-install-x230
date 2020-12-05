@@ -5,10 +5,12 @@ mkdir -p ~/.config/picom/
 mkdir -p ~/.config/displays/
 mkdir -p ~/.config/i3blocks/
 mkdir -p ~/.config/i3blocks-modules/
+mkdir -p ~/.config/rofi/
 
 cp -r config/i3/* ~/.config/i3/
 cp -r config/i3blocks/* ~/.config/i3blocks/
 cp -r config/i3blocks-modules/* ~/.config/i3blocks-modules/
+cp -r config/rofi/* ~/.config/rofi/
 cp -r config/picom/* ~/.config/picom/
 cp -r config/displays/* ~/.config/displays/
 
