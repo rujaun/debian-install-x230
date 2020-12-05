@@ -62,4 +62,6 @@ apt -y install lxappearance thunar arc-theme
 # Remove unneeded kernel packages after backports upgrade and do full system upgrade
 apt update && apt -y autoremove && apt -y dist-upgrade
 
+cp config/.xinitrc /home/rujaun/.xinitrc
+
 echo 'Reboot and then run install_2.sh :)'
