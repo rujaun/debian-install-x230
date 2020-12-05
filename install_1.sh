@@ -7,8 +7,8 @@ apt -y install sudo
 # auth       required   pam_wheel.so
 sed -i '/# auth       required   pam_wheel.so$/s/^# //g' /etc/pam.d/su
 
-addgroup --system wheel
-adduser rujaun wheel
+sudo addgroup --system wheel
+sudo adduser rujaun wheel
 
 # Add %wheel ALL=(ALL:ALL) ALL to sudoers
 echo '%wheel ALL=(ALL:ALL) ALL' | sudo EDITOR='tee -a' visudo
