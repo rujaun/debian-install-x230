@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Remove unneeded kernel packages after backports upgrade and do full system upgrade
+apt update && apt -y autoremove && apt -y dist-upgrade
+
 # Install acpi-call-dkms, lm-sensors, read-edid, i2c-tools for tlp and thinkfan
 apt -y install -t buster-backports acpi-call-dkms lm-sensors read-edid i2c-tools openssh-client
 
@@ -105,9 +108,13 @@ apt -y install pulseaudio pulseaudio-utils
 # Install Gnome keyring
 apt -y install gnome-keyring libsecret-1-0 seahorse
 
+# Enable keyring with pam/gdm3
+echo "password optional pam_gnome_keyring.so" | sudo tee -a /etc/pam.d/passwd
+
 # Start gnome-keyring with pam
 # sed -i '37iauth optional pam_gnome_keyring.so' /etc/pam.d/login
 # sed -i '65isession optional pam_gnome_keyring.so auto_start' /etc/pam.d/login
+
 
 # Start SSH and Secrets components of keyring daemon
 # mkdir -p /home/rujaun/.config/autostart/

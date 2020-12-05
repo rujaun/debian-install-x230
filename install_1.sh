@@ -24,15 +24,14 @@ apt update && apt -y install -t buster-backports linux-image-amd64 linux-headers
 systemctl enable fstrim.trimer
 
 # Install ly login manager
-apt -y install build-essential libpam0g-dev libxcb-xkb-dev
-git clone https://github.com/nullgemm/ly.git
-cd ly
-make github
-make
-make install
-systemctl enable ly.service
-
-cd ..
+# apt -y install build-essential libpam0g-dev libxcb-xkb-dev
+# git clone https://github.com/nullgemm/ly.git
+# cd ly
+# make github
+# make
+# make install
+# systemctl enable ly.service
+# cd ..
 
 # Install Xorg
 apt -y install xorg xinit xserver-xorg-video-intel xterm xbacklight
@@ -59,9 +58,7 @@ systemctl enable NetworkManager.service
 # Install thunar lxappearance arc-theme
 apt -y install lxappearance thunar arc-theme
 
-# Remove unneeded kernel packages after backports upgrade and do full system upgrade
-apt update && apt -y autoremove && apt -y dist-upgrade
-
-cp config/.xinitrc /home/rujaun/.xinitrc
+# Install GDM3 login manager
+apt -y install gdm3 --no-install-recommends
 
 echo 'Reboot and then run install_2.sh :)'
