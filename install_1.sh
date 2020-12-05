@@ -1,7 +1,5 @@
 #!/bin/bash
 
-su
-
 apt -y install sudo
 
 rm /etc/apt/sources.list
