@@ -23,8 +23,3 @@ sudo mkdir /usr/share/fonts/CoreFonts
 sudo cp ./core-fonts/* /usr/share/fonts/CoreFonts/
 sudo chmod 644 /usr/share/fonts/CoreFonts/*
 fc-cache -f -v
-
-sudo mkdir /usr/share/fonts/WinFonts
-sudo cp ./WinFonts/* /usr/share/fonts/WinFonts/
-sudo chmod 644 /usr/share/fonts/WinFonts/*
-fc-cache -f -v
