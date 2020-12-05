@@ -13,12 +13,15 @@ systemctl enable fstrim.trimer
 # Install ly login manager
 apt -y install build-essential libpam0g-dev libxcb-xkb-dev
 git clone https://github.com/nullgemm/ly.git
+cd ly
 make github
 make
 make install
 systemctl enable ly.service
 
-# Install xorg
+cd ..
+
+# Install Xorg
 apt -y install xorg xterm
 
 # Install i3wm
@@ -29,4 +32,8 @@ echo 'Package: i3*' | sudo tee /etc/apt/preferences.d/00-i3-autobuild.pref
 echo 'Pin: origin "dl.bintray.com"' | sudo tee -a /etc/apt/preferences.d/00-i3-autobuild.pref
 echo 'Pin-Priority: 1001' | sudo tee -a /etc/apt/preferences.d/00-i3-autobuild.pref
 apt update && apt -y install i3
+
+# Install Network Manager to use nmcli for connnecting to wifi
+apt -y install network-manager
+systemctl enable NetworkManager.service
 
