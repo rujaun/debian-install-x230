@@ -116,4 +116,20 @@ cp /etc/xdg/autostart/{gnome-keyring-secrets.desktop,gnome-keyring-ssh.desktop} 
 sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-secrets.desktop
 sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-ssh.desktop
 
+# Install Tela Icons:
+git clone https://github.com/vinceliuice/Tela-icon-theme.git
+cd Tela-icon-theme
+./install.sh
+
+# Install Zafiro-icons:
+cd ..
+git clone https://github.com/zayronxio/Zafiro-icons.git
+sudo cp -R Zafiro-icons/ /usr/share/icons/Zafiro-icons
+
+# Install Papirus icons
+echo "deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/papirus-ppa.list
+apt -y install dirmngr
+apt-key -y adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
+apt update && apt -y install papirus-icon-theme
+
 echo 'Reboot and then run install_3.sh :)'
