@@ -129,7 +129,10 @@ sudo cp -R Zafiro-icons/ /usr/share/icons/Zafiro-icons
 # Install Papirus icons
 apt -y install dirmngr
 echo "deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/papirus-ppa.list
-apt-key -y adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
 apt update && apt -y install papirus-icon-theme
+
+# Cleanup
+apt -y autoremove
 
 echo 'Reboot and then run install_3.sh :)'
