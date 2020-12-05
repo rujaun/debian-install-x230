@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install acpi-call-dkms, lm-sensors, read-edid, i2c-tools for tlp and thinkfan
-apt -y install -t buster-backports acpi-call-dkms lm-sensors read-edid i2c-tools
+apt -y install -t buster-backports acpi-call-dkms lm-sensors read-edid i2c-tools openssh-client
 
 yes "" | sudo sensors-detect
 
@@ -127,8 +127,8 @@ git clone https://github.com/zayronxio/Zafiro-icons.git
 sudo cp -R Zafiro-icons/ /usr/share/icons/Zafiro-icons
 
 # Install Papirus icons
-echo "deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/papirus-ppa.list
 apt -y install dirmngr
+echo "deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/papirus-ppa.list
 apt-key -y adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
 apt update && apt -y install papirus-icon-theme
 

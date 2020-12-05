@@ -32,9 +32,6 @@ apt -y install bzip2 gzip lzip xz-utils p7zip unrar zip unzip
 # Install ntfs and exfat support
 apt -y install ntfs-3g exfat-utils
 
-# Install openssh
-apt -y install openssh-client
-
 # Install a few apps
 apt -y install firefox-esr chromium krita persepolis transmission
 
