@@ -1,7 +1,20 @@
 #!/bin/bash
 
+# Install and configure sudo
 apt -y install sudo
 
+# Uncomment pam_wheel auth
+# auth       required   pam_wheel.so
+sed -i '/# auth       required   pam_wheel.so$/s/^# //g' /etc/pam.d/su
+
+addgroup --system wheel
+adduser rujaun wheel
+
+# Add %wheel ALL=(ALL:ALL) ALL to sudoers
+echo '%wheel ALL=(ALL:ALL) ALL' | sudo EDITOR='tee -a' visudo
+
+
+# Add non free and backports repos
 rm /etc/apt/sources.list
 cp sources.list /etc/apt/sources.list
 
@@ -37,3 +50,7 @@ apt update && apt -y install i3
 apt -y install network-manager
 systemctl enable NetworkManager.service
 
+# Install thunar lxappearance arc-theme
+apt -y install lxappearance thunar arc-theme
+
+echo 'Reboot! :)'
