@@ -9,10 +9,14 @@ cp -r config/picom/* ~/.config/picom/
 cp -r config/displays/* ~/.config/displays/
 
 cp -r config/vim/.vimrc ~/.vimrc
+cp -r config/tmux/.tmux.conf ~/.tmux.conf
+
 cp -r config/.bashrc ~/.bashrc
 cp -r config/.profile ~/.profile
 sudo cp -r config/fonts/.local.conf /etc/fonts/.local.conf
 sudo cp -r config/fonts/.fonts.conf ~/.fonts.conf
+
+cp config/.alacritty.yml ~/.alacritty.yml
 
 # Git
 git config --global user.name "Rujaun Fourie"
