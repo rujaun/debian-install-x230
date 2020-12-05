@@ -55,11 +55,11 @@ Section "Screen"
 EndSection
 
 Section "Device"
-	Identifier		"Intel Graphics"
-	Driver 			"intel"
+  Identifier  "Intel Graphics"
+  Driver  "intel"
   
-	Option 			"AccelMethod"  		"sna"
-	Option 			"TearFree" 			"true"
+  Option  "AccelMethod""sna"
+  Option  "TearFree""true"
 EndSection
 
 EOF
@@ -115,3 +115,5 @@ mkdir -p /home/rujaun/.config/autostart/
 cp /etc/xdg/autostart/{gnome-keyring-secrets.desktop,gnome-keyring-ssh.desktop} /home/rujaun/.config/autostart/
 sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-secrets.desktop
 sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-ssh.desktop
+
+echo 'Reboot and then run install_3.sh :)'

@@ -47,14 +47,14 @@ ninja -C build
 sudo ninja -C build install
 cd ..
 
-# Compile and install alacritty
+# Install the latest rust compiler
 apt -y install cmake curl pkg-config libfreetype6-dev libfontconfig libfontconfig1-dev libxcb-xfixes0-dev python3
-#curl https://sh.rustup.rs -sSd | sh -i
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
 rustup override set stable
 rustup update stable
 
+# Compile and install alacritty
 git clone https://github.com/alacritty/alacritty.git --branch v0.6.0 --single-branch
 cd alacritty
 cargo build --release
@@ -71,3 +71,6 @@ cd ..
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 apt update && apt -y install spotify-client
+ln -s /usr/share/spotify/spotify.desktop /usr/share/applications/
+
+echo 'Reboot and then run install_4.sh :)'
