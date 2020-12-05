@@ -106,15 +106,15 @@ apt -y install pulseaudio pulseaudio-utils
 apt -y install gnome-keyring libsecret-1-0 seahorse
 
 # Start gnome-keyring with pam
-sed -i '37iauth optional pam_gnome_keyring.so' /etc/pam.d/login
-sed -i '65isession optional pam_gnome_keyring.so auto_start' /etc/pam.d/login
+# sed -i '37iauth optional pam_gnome_keyring.so' /etc/pam.d/login
+# sed -i '65isession optional pam_gnome_keyring.so auto_start' /etc/pam.d/login
 
 # Start SSH and Secrets components of keyring daemon
-mkdir -p /home/rujaun/.config/autostart/
+# mkdir -p /home/rujaun/.config/autostart/
 
-cp /etc/xdg/autostart/{gnome-keyring-secrets.desktop,gnome-keyring-ssh.desktop} /home/rujaun/.config/autostart/
-sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-secrets.desktop
-sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-ssh.desktop
+# cp /etc/xdg/autostart/{gnome-keyring-secrets.desktop,gnome-keyring-ssh.desktop} /home/rujaun/.config/autostart/
+# sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-secrets.desktop
+# sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-ssh.desktop
 
 # Install Tela Icons:
 git clone https://github.com/vinceliuice/Tela-icon-theme.git

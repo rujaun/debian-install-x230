@@ -38,7 +38,7 @@ cd ..
 apt -y install xorg xinit xserver-xorg-video-intel xterm xbacklight
 
 # Install some dependecies for i3block scripts
-apt -y install cpufrequtils rofi unclutter
+apt -y install cpufrequtils
 
 # Install i3wm
 /usr/lib/apt/apt-helper download-file http://dl.bintray.com/i3/i3-autobuild/pool/main/i/i3-autobuild-keyring/i3-autobuild-keyring_2016.10.01_all.deb keyring.deb SHA256:460e8c7f67a6ae7c3996cc8a5915548fe2fee9637b1653353ec62b954978d844
@@ -47,7 +47,10 @@ echo 'deb http://dl.bintray.com/i3/i3-autobuild sid main' | sudo tee /etc/apt/so
 echo 'Package: i3*' | sudo tee /etc/apt/preferences.d/00-i3-autobuild.pref
 echo 'Pin: origin "dl.bintray.com"' | sudo tee -a /etc/apt/preferences.d/00-i3-autobuild.pref
 echo 'Pin-Priority: 1001' | sudo tee -a /etc/apt/preferences.d/00-i3-autobuild.pref
-apt update && apt -y install i3 i3blocks 
+apt update && apt -y install i3
+apt -y install i3blocks
+apt -y install rofi
+apt -y install unclutter
 
 # Install Network Manager to use nmcli for connnecting to wifi
 apt -y install network-manager
