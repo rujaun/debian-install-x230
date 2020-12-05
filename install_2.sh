@@ -110,6 +110,8 @@ sed -i '37iauth optional pam_gnome_keyring.so' /etc/pam.d/login
 sed -i '65isession optional pam_gnome_keyring.so auto_start' /etc/pam.d/login
 
 # Start SSH and Secrets components of keyring daemon
-cp /etc/xdg/autostart/{gnome-keyring-secrets.desktop,gnome-keyring-ssh.desktop} ~/.config/autostart/
-sed -i '/^OnlyShowIn.*$/d' ~/.config/autostart/gnome-keyring-secrets.desktop
-sed -i '/^OnlyShowIn.*$/d' ~/.config/autostart/gnome-keyring-ssh.desktop
+mkdir -p /home/rujaun/.config/autostart/
+
+cp /etc/xdg/autostart/{gnome-keyring-secrets.desktop,gnome-keyring-ssh.desktop} /home/rujaun/.config/autostart/
+sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-secrets.desktop
+sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-ssh.desktop
