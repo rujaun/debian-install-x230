@@ -49,7 +49,7 @@ cd ..
 
 # Compile and install alacritty
 apt -y install cmake curl pkg-config libfreetype6-dev libfontconfig libfontconfig1-dev libxcb-xfixes0-dev python3
-curl https://sh.rustup.rs -sSd | sh
+curl https://sh.rustup.rs -sSd | sh -i
 rustup override set stable
 rustup update stable
 
