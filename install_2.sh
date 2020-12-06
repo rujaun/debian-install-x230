@@ -80,7 +80,7 @@ EndSection
 EOF
 
 # Configure timezone
-sudo dpkg-reconfigure tzdata
+# sudo dpkg-reconfigure tzdata
 
 # Install python 3
 apt -y install -t buster-backports python3 python3-pip python3-wheel python3-venv
