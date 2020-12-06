@@ -52,7 +52,4 @@ systemctl enable NetworkManager.service
 # Install thunar lxappearance arc-theme
 apt -y install lxappearance thunar arc-theme
 
-# Install GDM3 login manager
-apt -y install gdm3
-
 echo 'Reboot and then run install_2.sh :)'

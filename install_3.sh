@@ -82,5 +82,7 @@ sudo apt-key --keyring /usr/share/keyrings/1password.gpg adv --keyserver keyserv
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password.gpg] https://downloads.1password.com/linux/debian edge main' | sudo tee /etc/apt/sources.list.d/1password.list
 apt update && apt -y install 1password
 
+# Install GDM3 login manager
+apt -y install gdm3
 
 echo 'Reboot and then run install_4.sh :)'
