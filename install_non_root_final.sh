@@ -30,3 +30,5 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # Install TPM for tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+python3 -m pip install i3blocks-spotify-persist
