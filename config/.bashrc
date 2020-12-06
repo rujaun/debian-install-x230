@@ -13,6 +13,9 @@ COLORTERM=truecolor
 alias ls='ls --color=auto'
 
 
+alias reboot="systemctl reboot"
+alias shutdown="systemctl poweroff"
+
 alias pythonv='python -m venv env'
 alias pythonva='source env/bin/activate'
 alias python='python3'

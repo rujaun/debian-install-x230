@@ -52,4 +52,7 @@ systemctl enable NetworkManager.service
 # Install thunar lxappearance arc-theme
 apt -y install lxappearance thunar arc-theme arandr playerctl breeze qt5ct acpi
 
+# Install solaar for logitech mouse
+apt -y install -t buster-backports solaar
+
 echo 'Reboot and then run install_2.sh :)'
