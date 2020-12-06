@@ -44,6 +44,7 @@ apt update && apt -y install i3
 apt -y install i3blocks
 apt -y install rofi
 apt -y install unclutter
+apt -y install hsetroot
 
 # Install Network Manager to use nmcli for connnecting to wifi
 apt -y install network-manager

@@ -53,7 +53,7 @@ bindsym XF86AudioPrev exec playerctl previous &
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -223,7 +223,7 @@ bar {
 	status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 }
 
-exec_always --no-startup-id xsetroot -solid "#2e3440" &
 exec_always --no-startup-id sh ~/.config/displays/xrandr.sh &
 exec --no-startup-id picom --config ~/.config/picom/picom.conf &
 exec --no-startup-id unclutter &
+exec_always --no-startup-id hsetroot -solid "#2e3440" &
