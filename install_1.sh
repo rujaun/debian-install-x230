@@ -50,6 +50,6 @@ apt -y install network-manager
 systemctl enable NetworkManager.service
 
 # Install thunar lxappearance arc-theme
-apt -y install lxappearance thunar arc-theme
+apt -y install lxappearance thunar arc-theme arandr playerctl breeze qt5ct acpi
 
 echo 'Reboot and then run install_2.sh :)'
