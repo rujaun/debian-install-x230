@@ -27,14 +27,14 @@ echo 'options thinkpad_acpi fan_control=1 experimental=1' | sudo tee /etc/modpro
 
 # Copy the Thinkfan config
 rm /etc/thinkfan.conf
-cp thinkfan.conf /etc/thinkfan.conf
+cp config/thinkfan.conf /etc/thinkfan.conf
 
 sudo modprobe -rv thinkpad_acpi
 sudo modprobe -v thinkpad_acpi
 
 # Replace thinkfan service with service that includes -D switch
 rm /lib/systemd/system/thinkfan.service
-cp thinkfan.service /lib/systemd/system/thinkfan.service
+cp config/thinkfan.service /lib/systemd/system/thinkfan.service
 
 # Enable thinkfan service
 systemctl enable thinkfan
@@ -108,20 +108,8 @@ apt -y install pulseaudio pulseaudio-utils
 # Install Gnome keyring
 apt -y install gnome-keyring libsecret-1-0 seahorse
 
-# Enable keyring with pam/gdm3
+# Enable keyring for pam/gdm3
 echo "password optional pam_gnome_keyring.so" | sudo tee -a /etc/pam.d/passwd
-
-# Start gnome-keyring with pam
-# sed -i '37iauth optional pam_gnome_keyring.so' /etc/pam.d/login
-# sed -i '65isession optional pam_gnome_keyring.so auto_start' /etc/pam.d/login
-
-
-# Start SSH and Secrets components of keyring daemon
-# mkdir -p /home/rujaun/.config/autostart/
-
-# cp /etc/xdg/autostart/{gnome-keyring-secrets.desktop,gnome-keyring-ssh.desktop} /home/rujaun/.config/autostart/
-# sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-secrets.desktop
-# sed -i '/^OnlyShowIn.*$/d' /home/rujaun/.config/autostart/gnome-keyring-ssh.desktop
 
 # Install Tela Icons:
 git clone https://github.com/vinceliuice/Tela-icon-theme.git

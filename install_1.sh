@@ -16,22 +16,15 @@ echo '%wheel ALL=(ALL:ALL) ALL' | sudo EDITOR='tee -a' visudo
 
 # Add non free and backports repos
 rm /etc/apt/sources.list
-cp sources.list /etc/apt/sources.list
+cp config/sources.list /etc/apt/sources.list
 
-apt update && apt -y install -t buster-backports linux-image-amd64 linux-headers-amd64 firmware-linux firmware-linux-nonfree vim htop neofetch firmware-iwlwifi
+apt update && apt -y install -t buster-backports linux-image-amd64 linux-headers-amd64 firmware-linux firmware-linux-nonfree vim tmux htop neofetch firmware-iwlwifi
 
 # Enable Trim support for SSDs
 systemctl enable fstrim.trimer
 
-# Install ly login manager
-# apt -y install build-essential libpam0g-dev libxcb-xkb-dev
-# git clone https://github.com/nullgemm/ly.git
-# cd ly
-# make github
-# make
-# make install
-# systemctl enable ly.service
-# cd ..
+# Install build essential for compilers
+apt -y install build-essential
 
 # Install Xorg
 apt -y install xorg xinit xserver-xorg-video-intel xterm xbacklight
@@ -47,6 +40,7 @@ echo 'Package: i3*' | sudo tee /etc/apt/preferences.d/00-i3-autobuild.pref
 echo 'Pin: origin "dl.bintray.com"' | sudo tee -a /etc/apt/preferences.d/00-i3-autobuild.pref
 echo 'Pin-Priority: 1001' | sudo tee -a /etc/apt/preferences.d/00-i3-autobuild.pref
 apt update && apt -y install i3
+
 apt -y install i3blocks
 apt -y install rofi
 apt -y install unclutter

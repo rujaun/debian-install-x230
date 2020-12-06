@@ -33,3 +33,10 @@ sudo mkdir /usr/share/fonts/CoreFonts
 sudo cp ./core-fonts/* /usr/share/fonts/CoreFonts/
 sudo chmod 644 /usr/share/fonts/CoreFonts/*
 fc-cache -f -v
+
+# Install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install TPM for tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
