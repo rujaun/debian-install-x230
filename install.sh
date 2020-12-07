@@ -50,6 +50,12 @@ apt -y install hsetroot
 apt -y install network-manager
 systemctl enable NetworkManager.service
 
+# Make systemd ignore lid suspend if power is on AC
+echo 'HandleLidSwitchExternalPower=ignore' | sudo tee /etc/systemd/logind.conf
+
+# Disable all methods of sleep with systemd auto sleep
+systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
 # Install thunar lxappearance arc-theme
 apt -y install lxappearance thunar arc-theme arandr playerctl breeze qt5ct acpi
 
