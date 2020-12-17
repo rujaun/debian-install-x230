@@ -285,4 +285,7 @@ sudo cp ./core-fonts/* /usr/share/fonts/CoreFonts/
 sudo chmod 644 /usr/share/fonts/CoreFonts/*
 fc-cache -f -v
 
+# Install xscreensaver
+apt -y install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra
+
 echo 'Run install_non_root.sh outside of root and reboot :)'
