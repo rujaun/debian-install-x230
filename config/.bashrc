@@ -20,6 +20,6 @@ export PY_USER_BIN=$(python3 -c 'import site; print(site.USER_BASE + "/bin")')
 export PATH=$PY_USER_BIN:$PATH
 
 source "$HOME/.cargo/env"
-source ~/CompiledApps/alacritty/extra/completions/alacritty.bash
+source ~/Compiled/alacritty/extra/completions/alacritty.bash
 
 eval "$(starship init bash)"
