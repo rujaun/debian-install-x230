@@ -38,4 +38,14 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 wget https://starship.rs/install.sh
 ./install.sh
 
+git clone https://github.com/geany/geany-themes.git
+cd geany-themes
+./install.sh
+
+cd ..
+
+git clone https://github.com/Betelgeuse1/NordThemeGeany.git
+cd NordThemeGeany
+./nord
+
 python3 -m pip install i3blocks-spotify-persist
