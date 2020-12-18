@@ -288,4 +288,9 @@ fc-cache -f -v
 # Install xscreensaver
 apt -y install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra
 
+# Install timetracking for harvest
+wget https://github.com/frenkel/timer-for-harvest/releases/download/v0.3.3/debian-10-timer-for-harvest_0.3.3_amd64.deb
+sudo dpkg -i ./debian-10-timer-for-harvest_0.3.3_amd64.deb
+
+
 echo 'Run install_non_root.sh outside of root and reboot :)'
