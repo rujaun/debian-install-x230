@@ -20,6 +20,7 @@ cp -r config/tmux/.tmux.conf ~/.tmux.conf
 cp -r config/.bashrc ~/.bashrc
 cp -r config/.profile ~/.profile
 cp config/alacritty/.alacritty.yml ~/.alacritty.yml
+cp config/starship.toml ~/.config/.starship.toml
 
 
 # Git
@@ -33,5 +34,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # Install TPM for tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+wget https://starship.rs/install.sh
+./install.sh
 
 python3 -m pip install i3blocks-spotify-persist

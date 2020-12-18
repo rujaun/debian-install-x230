@@ -1,0 +1,19 @@
+add_newline = false
+
+[line_break]
+disabled = true
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+style = "bold yellow"
+
+[python]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+[username]
+style_user = "bold dimmed blue"

@@ -5,16 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source ~/.bash_completion/alacritty
+alias reboot="systemctl reboot"
+alias shutdown="systemctl poweroff"
 
 EDITOR=vim
 COLORTERM=truecolor
-
-alias ls='ls --color=auto'
-
-
-alias reboot="systemctl reboot"
-alias shutdown="systemctl poweroff"
 
 alias pythonv='python -m venv env'
 alias pythonva='source env/bin/activate'
@@ -23,3 +18,8 @@ alias pip='pip3'
 
 export PY_USER_BIN=$(python3 -c 'import site; print(site.USER_BASE + "/bin")')
 export PATH=$PY_USER_BIN:$PATH
+
+source "$HOME/.cargo/env"
+source ~/CompiledApps/alacritty/extra/completions/alacritty.bash
+
+eval "$(starship init bash)"
