@@ -20,7 +20,7 @@ cp -r config/tmux/.tmux.conf ~/.tmux.conf
 cp -r config/.bashrc ~/.bashrc
 cp -r config/.profile ~/.profile
 cp config/alacritty/.alacritty.yml ~/.alacritty.yml
-cp config/starship.toml ~/.config/.starship.toml
+cp config/starship.toml ~/.config/starship.toml
 
 
 # Git
