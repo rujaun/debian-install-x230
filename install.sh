@@ -56,8 +56,8 @@ echo 'HandleLidSwitchExternalPower=ignore' | sudo tee /etc/systemd/logind.conf
 # Disable all methods of sleep with systemd auto sleep
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
-# Install thunar lxappearance arc-theme
-apt -y install lxappearance thunar arc-theme arandr playerctl breeze qt5ct acpi
+# Install thunar kvantum lxappearance arc-theme
+apt -y install qt5-style-kvantum qt5-style-kvantum-themes lxappearance thunar arc-theme arandr playerctl breeze qt5ct acpi
 
 # Install solaar for logitech mouse
 apt -y install -t buster-backports solaar
@@ -238,7 +238,7 @@ sudo chmod 644 /usr/share/fonts/CoreFonts/*
 fc-cache -f -v
 
 # Install xscreensaver
-apt -y install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra
+apt -y install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra xscreensaver-screensaver-bsod
 
 # Install timetracking for harvest
 wget https://github.com/frenkel/timer-for-harvest/releases/download/v0.3.3/debian-10-timer-for-harvest_0.3.3_amd64.deb
