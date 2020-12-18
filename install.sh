@@ -24,7 +24,7 @@ apt update && apt -y install -t buster-backports linux-image-amd64 linux-headers
 systemctl enable fstrim.trimer
 
 # Install build essential for compilers
-apt -y install build-essential
+apt -y install build-essential curl wget
 
 # Install Xorg
 apt -y install xorg xinit xserver-xorg-video-intel xterm xbacklight
