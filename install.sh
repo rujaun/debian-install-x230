@@ -57,7 +57,7 @@ echo 'HandleLidSwitchExternalPower=ignore' | sudo tee /etc/systemd/logind.conf
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
 # Install thunar kvantum lxappearance arc-theme
-apt -y install qt5-style-kvantum qt5-style-kvantum-themes lxappearance thunar arc-theme arandr playerctl breeze qt5ct acpi evince gvfs-fuse gvfs-backends
+apt -y install qt5-style-kvantum qt5-style-kvantum-themes lxappearance thunar thunar-archive-plugin arc-theme arandr playerctl breeze qt5ct acpi evince gvfs-fuse gvfs-backends
 
 # Install solaar for logitech mouse
 apt -y install -t buster-backports solaar
