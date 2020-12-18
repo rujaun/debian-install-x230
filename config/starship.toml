@@ -14,6 +14,7 @@ style = "bold yellow"
 [python]
 format = "[$symbol$version]($style) "
 style = "bold green"
+symbol = " "
 
 [username]
 style_user = "bold dimmed blue"
