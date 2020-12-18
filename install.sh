@@ -153,16 +153,11 @@ sudo dpkg --add-architecture i386
 apt update && apt -y dist-upgrade
 apt -y install -t buster-backports libgl1-mesa-dri:i386 mesa-vulkan-drivers mesa-vulkan-drivers:i386
 
-
-# Build picom
-apt -y install cmake libev-dev libpcre++-dev meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
-git clone https://github.com/yshui/picom.git
-cd picom
-git submodule update --init --recursive
-meson --buildtype=release . build
-sudo ninja -C build install
-
-cd ..
+# Install Papirus icons
+apt -y install dirmngr
+echo "deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/papirus-ppa.list
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
+apt update && apt -y install papirus-icon-theme
 
 # Install pulseaudio
 apt -y install pulseaudio pulseaudio-utils
@@ -172,22 +167,6 @@ apt -y install gnome-keyring libsecret-1-0 seahorse
 
 # Enable keyring for pam/gdm3
 echo "password optional pam_gnome_keyring.so" | sudo tee -a /etc/pam.d/passwd
-
-# Install Tela Icons:
-git clone https://github.com/vinceliuice/Tela-icon-theme.git
-cd Tela-icon-theme
-./install.sh
-
-# Install Zafiro-icons:
-cd ..
-git clone https://github.com/zayronxio/Zafiro-icons.git
-sudo cp -R Zafiro-icons/ /usr/share/icons/Zafiro-icons
-
-# Install Papirus icons
-apt -y install dirmngr
-echo "deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/papirus-ppa.list
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
-apt update && apt -y install papirus-icon-theme
 
 # Cleanup
 apt -y autoremove
@@ -236,36 +215,6 @@ apt -y install -t buster-backports libreoffice libreoffice-gtk3
 # Install a few math applications
 apt -y install -t buster-backports geogebra kmplot cantor kalgebra labplot
 
-# Compile foliate ebook reader
-apt -y install -t buster-backports gir1.2-handy-0.0
-apt -y install gjs gir1.2-webkit2-4.0 meson gettext iso-codes appstream-util libglib2.0-dev 
-git clone https://github.com/johnfactotum/foliate.git --branch 2.5.0 --single-branch
-cd foliate
-meson build --prefix=/usr
-ninja -C build
-sudo ninja -C build install
-cd ..
-
-# Install the latest rust compiler
-apt -y install cmake curl pkg-config libfreetype6-dev libfontconfig libfontconfig1-dev libxcb-xfixes0-dev python3
-curl https://sh.rustup.rs -sSf | sh -s -- -y
-source $HOME/.cargo/env
-rustup override set stable
-rustup update stable
-
-# Compile and install alacritty
-git clone https://github.com/alacritty/alacritty.git --branch v0.6.0 --single-branch
-cd alacritty
-cargo build --release
-cp target/release/alacritty /usr/local/bin
-cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-sudo desktop-file-install extra/linux/Alacritty.desktop
-sudo update-desktop-database
-mkdir -p /home/rujaun/.bash_completion/
-cp extra/completions/alacritty.bash /home/rujaun/.bash_completion/alacritty
-#echo "source ~/.bash_completion/alacritty" >> ~/.bashrc
-cd ..
-
 # Install spotify
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -295,5 +244,59 @@ apt -y install xscreensaver xscreensaver-gl-extra xscreensaver-data-extra
 wget https://github.com/frenkel/timer-for-harvest/releases/download/v0.3.3/debian-10-timer-for-harvest_0.3.3_amd64.deb
 sudo dpkg -i ./debian-10-timer-for-harvest_0.3.3_amd64.deb
 
+# Install the latest rust compiler
+apt -y install cmake curl pkg-config libfreetype6-dev libfontconfig libfontconfig1-dev libxcb-xfixes0-dev python3
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+source $HOME/.cargo/env
+rustup override set stable
+rustup update stable
+
+## Custom Compiled Apps:
+cd /home/rujaun/
+mkdir Compiled
+cd Compiled/
+
+# Build picom
+cd /home/rujaun/Compiled/
+apt -y install cmake libev-dev libpcre++-dev meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+git clone https://github.com/yshui/picom.git
+cd picom
+git submodule update --init --recursive
+meson --buildtype=release . build
+sudo ninja -C build install
+
+# Compile and install alacritty
+cd /home/rujaun/Compiled/
+git clone https://github.com/alacritty/alacritty.git --branch v0.6.0 --single-branch
+cd alacritty
+cargo build --release
+cp target/release/alacritty /usr/local/bin
+cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+sudo desktop-file-install extra/linux/Alacritty.desktop
+sudo update-desktop-database
+mkdir -p /home/rujaun/.bash_completion/
+# cp extra/completions/alacritty.bash /home/rujaun/.bash_completion/alacritty
+# echo "source ~/.bash_completion/alacritty" >> ~/.bashrc
+
+# Compile foliate ebook reader
+cd /home/rujaun/Compiled/
+apt -y install -t buster-backports gir1.2-handy-0.0
+apt -y install gjs gir1.2-webkit2-4.0 meson gettext iso-codes appstream-util libglib2.0-dev 
+git clone https://github.com/johnfactotum/foliate.git --branch 2.5.0 --single-branch
+cd foliate
+meson build --prefix=/usr
+ninja -C build
+sudo ninja -C build install
+
+# Install Tela Icons:
+cd /home/rujaun/Compiled/
+git clone https://github.com/vinceliuice/Tela-icon-theme.git
+cd Tela-icon-theme
+./install.sh
+
+# Install Zafiro-icons:
+cd /home/rujaun/Compiled/
+git clone https://github.com/zayronxio/Zafiro-icons.git
+sudo cp -R Zafiro-icons/ /usr/share/icons/Zafiro-icons
 
 echo 'Run install_non_root.sh outside of root and reboot :)'
