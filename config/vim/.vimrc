@@ -5,10 +5,8 @@ set number
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
-"Plug 'vim-scripts/indentpython'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'vim-airline/vim-airline'
-Plug 'arcticicestudio/nord-vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'jiangmiao/auto-pairs'
@@ -16,8 +14,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'ryanoasis/vim-devicons'
 Plug 'avakhov/vim-yaml'
 Plug 'sickill/vim-pasta'
-Plug 'nathanaelkane/vim-indent-guides'
-
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -34,6 +31,7 @@ set hlsearch
 set ruler
 set encoding=utf-8
 set mouse=a
+colorscheme nord
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -50,10 +48,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 nnoremap <leader>p p`[v`]=
 map <C-i> gt
 
-"set termguicolors
+set termguicolors
 "set t_Co=256
 
-colorscheme nord
 set background=dark
 
 " YouCompleteMe
