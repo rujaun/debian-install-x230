@@ -33,3 +33,5 @@ fi
 
 export QT_STYLE_OVERRIDE=kvantum
 source "$HOME/.cargo/env"
+
+export PATH=~/.npm-global/bin:$PATH
